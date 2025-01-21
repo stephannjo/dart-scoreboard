@@ -46,7 +46,7 @@ select, input[type="number"], input[type="text"] {
 
 button {
     padding: 10px 15px;
-    margin: 10px 5px;
+    margin: 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -75,6 +75,8 @@ button:hover {
 
 .player-name {
     font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 5px;
 }
 
 .player-score {
@@ -99,47 +101,57 @@ button:hover {
 }
 
 /* Score Input Styling */
+
+#score-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #score-input {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 #game-buttons {
-    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .score-buttons {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 columns */
     gap: 5px;
-    margin-bottom: 20px;
 }
 
 .score-buttons .row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 5px;
 }
 
 .score-buttons button {
+    flex: 1;
     padding: 10px;
     font-size: 1.2em;
 }
 
 /* Double/Triple Button Styling */
-#doubleButton, #tripleButton {
-    background-color: #28a745; /* Darker green for active state */
-}
-
 #doubleButton.selected,
 #tripleButton.selected {
-    background-color: #dc3545; /* Red for active state */
+    background-color: #28a745; /* Darker green for active state */
     color: white;
 }
 
 /* Media Query for Smaller Screens */
 @media (max-width: 500px) {
     .score-buttons {
-        grid-template-columns: repeat(5, 1fr); /* 5 columns on smaller screens */
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+    }
+    
+    .score-buttons .row {
+        justify-content: center;
     }
 
     .score-buttons button {
