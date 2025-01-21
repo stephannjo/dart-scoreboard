@@ -30,7 +30,7 @@
             </select><br>
 
             <div id="player-names">
-                </div>
+            </div>
 
             <button onclick="startGame()">Start Game</button>
         </div>
@@ -38,116 +38,53 @@
         <div id="scoreboard" style="display: none;">
             <h2 id="game-title"></h2>
             <div id="players-container">
-                </div>
+            </div>
             <div id="score-input">
                 <div class="score-buttons">
                     <div class="row">
                         <button data-score="25">25</button>
-                        <button data-score="50">50</button>
                         <button data-score="0">Miss</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="20">20</button>
-                        <button data-multiplier="2" data-value="20">D20</button>
-                        <button data-multiplier="3" data-value="20">T20</button>
+                        <button data-value="20">20</button>
+                        <button data-value="19">19</button>
+                        <button data-value="18">18</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="19">19</button>
-                        <button data-multiplier="2" data-value="19">D19</button>
-                        <button data-multiplier="3" data-value="19">T19</button>
+                        <button data-value="17">17</button>
+                        <button data-value="16">16</button>
+                        <button data-value="15">15</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="18">18</button>
-                        <button data-multiplier="2" data-value="18">D18</button>
-                        <button data-multiplier="3" data-value="18">T18</button>
+                        <button data-value="14">14</button>
+                        <button data-value="13">13</button>
+                        <button data-value="12">12</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="17">17</button>
-                        <button data-multiplier="2" data-value="17">D17</button>
-                        <button data-multiplier="3" data-value="17">T17</button>
+                        <button data-value="11">11</button>
+                        <button data-value="10">10</button>
+                        <button data-value="9">9</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="16">16</button>
-                        <button data-multiplier="2" data-value="16">D16</button>
-                        <button data-multiplier="3" data-value="16">T16</button>
+                        <button data-value="8">8</button>
+                        <button data-value="7">7</button>
+                        <button data-value="6">6</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="15">15</button>
-                        <button data-multiplier="2" data-value="15">D15</button>
-                        <button data-multiplier="3" data-value="15">T15</button>
+                        <button data-value="5">5</button>
+                        <button data-value="4">4</button>
+                        <button data-value="3">3</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="14">14</button>
-                        <button data-multiplier="2" data-value="14">D14</button>
-                        <button data-multiplier="3" data-value="14">T14</button>
+                        <button data-value="2">2</button>
+                        <button data-value="1">1</button>
+                        <button id="doubleButton">Double</button>
                     </div>
                     <div class="row">
-                        <button data-multiplier="1" data-value="13">13</button>
-                        <button data-multiplier="2" data-value="13">D13</button>
-                        <button data-multiplier="3" data-value="13">T13</button>
+                       <button id="tripleButton">Triple</button>
                     </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="12">12</button>
-                        <button data-multiplier="2" data-value="12">D12</button>
-                        <button data-multiplier="3" data-value="12">T12</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="11">11</button>
-                        <button data-multiplier="2" data-value="11">D11</button>
-                        <button data-multiplier="3" data-value="11">T11</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="10">10</button>
-                        <button data-multiplier="2" data-value="10">D10</button>
-                        <button data-multiplier="3" data-value="10">T10</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="9">9</button>
-                        <button data-multiplier="2" data-value="9">D9</button>
-                        <button data-multiplier="3" data-value="9">T9</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="8">8</button>
-                        <button data-multiplier="2" data-value="8">D8</button>
-                        <button data-multiplier="3" data-value="8">T8</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="7">7</button>
-                        <button data-multiplier="2" data-value="7">D7</button>
-                        <button data-multiplier="3" data-value="7">T7</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="6">6</button>
-                        <button data-multiplier="2" data-value="6">D6</button>
-                        <button data-multiplier="3" data-value="6">T6</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="5">5</button>
-                        <button data-multiplier="2" data-value="5">D5</button>
-                        <button data-multiplier="3" data-value="5">T5</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="4">4</button>
-                        <button data-multiplier="2" data-value="4">D4</button>
-                        <button data-multiplier="3" data-value="4">T4</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="3">3</button>
-                        <button data-multiplier="2" data-value="3">D3</button>
-                        <button data-multiplier="3" data-value="3">T3</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="2">2</button>
-                        <button data-multiplier="2" data-value="2">D2</button>
-                        <button data-multiplier="3" data-value="2">T2</button>
-                    </div>
-                    <div class="row">
-                        <button data-multiplier="1" data-value="1">1</button>
-                        <button data-multiplier="2" data-value="1">D1</button>
-                        <button data-multiplier="3" data-value="1">T1</button>
                     </div>
                 </div>
-            </div>
             <button onclick="nextPlayer()">Next Player</button>
             <button onclick="undo()">Undo</button>
             <button onclick="endGame()">End Game</button>

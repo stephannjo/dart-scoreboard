@@ -4,6 +4,7 @@ let playerNames = [];
 let scores = [];
 let currentPlayer = 0;
 let matchHistory = [];
+let selectedMultiplier = 1; // Global variable to store the selected multiplier
 
 // Function to set up the player names section
 function setupPlayerNames() {
@@ -72,20 +73,54 @@ function renderScoreboard() {
     }
 }
 
-// Function to handle score input from buttons
-function handleScoreInput(multiplier, value) {
-    const score = multiplier * value;
+// Functions to handle score input from buttons
+function handleScoreInput(value) {
+    // This function is called when a number button is clicked
+    // 'value' is the number clicked (e.g., 1, 20, 25)
+    updateScore(value, selectedMultiplier);
+    selectedMultiplier = 1; // Reset multiplier to 1 (single)
+    resetMultiplierButtons(); // Reset the appearance of multiplier buttons
+}
+
+function selectMultiplier(multiplier) {
+    // This function is called when the Double or Triple button is clicked
+    selectedMultiplier = multiplier;
+    updateMultiplierButtons(multiplier); // Update button appearance
+}
+
+function updateMultiplierButtons(multiplier) {
+    const doubleButton = document.getElementById('doubleButton');
+    const tripleButton = document.getElementById('tripleButton');
+
+    // Reset buttons to default style
+    doubleButton.classList.remove('selected');
+    tripleButton.classList.remove('selected');
+
+    // Highlight the selected button
+    if (multiplier === 2) {
+        doubleButton.classList.add('selected');
+    } else if (multiplier === 3) {
+        tripleButton.classList.add('selected');
+    }
+}
+
+function resetMultiplierButtons() {
+    document.getElementById('doubleButton').classList.remove('selected');
+    document.getElementById('tripleButton').classList.remove('selected');
+}
+
+function updateScore(value, multiplier) {
+    const score = value * multiplier;
 
     if (gameMode === 'cricket') {
         // Implement Cricket scoring logic here
-        // You'll need to track hits on each number (20-15 + Bull)
-        // and handle closing out numbers when 3 hits are scored
     } else { // X01 games
         scores[currentPlayer] -= score;
         if (scores[currentPlayer] < 0) {
             scores[currentPlayer] += score; // Bust, revert score
         }
     }
+
     document.getElementById(`player-score-${currentPlayer}`).textContent = scores[currentPlayer];
     checkForWinner();
 }
@@ -94,15 +129,20 @@ function handleScoreInput(multiplier, value) {
 const scoreButtons = document.querySelectorAll('.score-buttons button');
 scoreButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const multiplier = parseInt(button.dataset.multiplier) || 1; // Default to 1 if no multiplier
-        const value = parseInt(button.dataset.value) || parseInt(button.dataset.score); // Use score for bull, miss
-        handleScoreInput(multiplier, value);
+        const value = parseInt(button.dataset.value) || parseInt(button.dataset.score); // Use score for 25, miss
+
+        if (button.id === 'doubleButton') {
+            selectMultiplier(2); // Select Double
+        } else if (button.id === 'tripleButton') {
+            selectMultiplier(3); // Select Triple
+        } else {
+            handleScoreInput(value); // Handle as a regular score input
+        }
     });
 });
 
 function miss() {
-    // In X01, a miss doesn't change the score, proceed with updating the score for the current player
-    handleScoreInput(1, 0);
+    handleScoreInput(0);
 }
 
 function nextPlayer() {
