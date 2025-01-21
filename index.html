@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dart Scoreboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Dart Scoreboard</h1>
+
+        <div id="game-setup">
+            <h2>Game Setup</h2>
+
+            <label for="game-mode">Game Mode:</label>
+            <select id="game-mode">
+                <option value="501">501</option>
+                <option value="301">301</option>
+                <option value="cricket">Cricket</option>
+                <option value="around-the-clock">Around the Clock</option>
+            </select><br>
+
+            <label for="num-players">Players:</label>
+            <select id="num-players">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <div id="player-names">
+                </div>
+
+            <button onclick="startGame()">Start Game</button>
+        </div>
+
+        <div id="scoreboard" style="display: none;">
+            <h2 id="game-title"></h2>
+            <div id="players-container">
+                </div>
+            <div id="score-input">
+                <button onclick="inputScore(25)">Bull</button>
+                <button onclick="inputScore(50)">Bullseye</button>
+                <button onclick="miss()">Miss</button>
+                <input type="number" id="manual-score" placeholder="Manual Score">
+                <button onclick="inputManualScore()">Enter</button>
+            </div>
+            <button onclick="nextPlayer()">Next Player</button>
+            <button onclick="undo()">Undo</button>
+            <button onclick="endGame()">End Game</button>
+        </div>
+
+        <div id="match-history">
+            <h2>Match History</h2>
+            <ul id="history-list"></ul>
+        </div>
+
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
