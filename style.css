@@ -97,3 +97,24 @@ button:hover {
     padding: 10px;
     border-radius: 4px;
 }
+
+#score-input {
+    margin-bottom: 20px;
+}
+
+.score-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 5px;
+}
+
+.score-buttons .row {
+    display: flex;
+    gap: 5px;
+}
+
+.score-buttons button {
+    flex: 1; /* Buttons take equal width in a row */
+    padding: 10px;
+    font-size: 1.2em;
+}

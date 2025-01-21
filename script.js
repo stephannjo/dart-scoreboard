@@ -72,10 +72,15 @@ function renderScoreboard() {
     }
 }
 
-function inputScore(score) {
+// Function to handle score input from buttons
+function handleScoreInput(multiplier, value) {
+    const score = multiplier * value;
+
     if (gameMode === 'cricket') {
-        // Implement Cricket scoring logic
-    } else {
+        // Implement Cricket scoring logic here
+        // You'll need to track hits on each number (20-15 + Bull)
+        // and handle closing out numbers when 3 hits are scored
+    } else { // X01 games
         scores[currentPlayer] -= score;
         if (scores[currentPlayer] < 0) {
             scores[currentPlayer] += score; // Bust, revert score
@@ -85,18 +90,19 @@ function inputScore(score) {
     checkForWinner();
 }
 
-function miss() {
-    // In X01, a miss doesn't change the score but moves to the next player
-    // In Cricket, you might want to track misses differently
-    nextPlayer();
-}
+// Attach event listeners to score buttons
+const scoreButtons = document.querySelectorAll('.score-buttons button');
+scoreButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const multiplier = parseInt(button.dataset.multiplier) || 1; // Default to 1 if no multiplier
+        const value = parseInt(button.dataset.value) || parseInt(button.dataset.score); // Use score for bull, miss
+        handleScoreInput(multiplier, value);
+    });
+});
 
-function inputManualScore() {
-    const manualScore = parseInt(document.getElementById('manual-score').value);
-    if (!isNaN(manualScore)) {
-        inputScore(manualScore);
-    }
-    document.getElementById('manual-score').value = ''; // Clear input field
+function miss() {
+    // In X01, a miss doesn't change the score, proceed with updating the score for the current player
+    handleScoreInput(1, 0);
 }
 
 function nextPlayer() {
