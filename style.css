@@ -103,30 +103,47 @@ button:hover {
     margin-bottom: 20px;
 }
 
+#game-buttons {
+    text-align: center;
+}
+
 .score-buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
     gap: 5px;
+    margin-bottom: 20px;
 }
 
 .score-buttons .row {
     display: flex;
+    justify-content: center;
     gap: 5px;
 }
 
 .score-buttons button {
-    flex: 1; /* Buttons take equal width in a row */
     padding: 10px;
     font-size: 1.2em;
 }
 
+/* Double/Triple Button Styling */
+#doubleButton, #tripleButton {
+    background-color: #28a745; /* Darker green for active state */
+}
+
+#doubleButton.selected,
+#tripleButton.selected {
+    background-color: #dc3545; /* Red for active state */
+    color: white;
+}
+
 /* Media Query for Smaller Screens */
 @media (max-width: 500px) {
-    .score-buttons button {
-        font-size: 1em; /* Reduce font size on smaller screens */
-        padding: 8px; /* Reduce padding on smaller screens */
-    }
     .score-buttons {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Adjust minmax values as needed */
+        grid-template-columns: repeat(5, 1fr); /* 5 columns on smaller screens */
+    }
+
+    .score-buttons button {
+        font-size: 1em; /* Adjust font size if needed */
+        padding: 8px; /* Adjust padding if needed */
     }
 }

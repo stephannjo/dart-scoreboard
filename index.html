@@ -42,52 +42,46 @@
             <div id="score-input">
                 <div class="score-buttons">
                     <div class="row">
-                        <button data-score="25">25</button>
-                        <button data-score="0">Miss</button>
-                    </div>
-                    <div class="row">
+                        <button data-value="25">25</button>
+                        <button data-value="0">Miss</button>
                         <button data-value="20">20</button>
                         <button data-value="19">19</button>
                         <button data-value="18">18</button>
-                    </div>
-                    <div class="row">
+                     </div>
+                     <div class="row">
                         <button data-value="17">17</button>
                         <button data-value="16">16</button>
                         <button data-value="15">15</button>
-                    </div>
-                    <div class="row">
                         <button data-value="14">14</button>
                         <button data-value="13">13</button>
-                        <button data-value="12">12</button>
                     </div>
                     <div class="row">
+                        <button data-value="12">12</button>
                         <button data-value="11">11</button>
                         <button data-value="10">10</button>
                         <button data-value="9">9</button>
+                        <button data-value="8">8</button>
                     </div>
                     <div class="row">
-                        <button data-value="8">8</button>
                         <button data-value="7">7</button>
                         <button data-value="6">6</button>
-                    </div>
-                    <div class="row">
                         <button data-value="5">5</button>
                         <button data-value="4">4</button>
                         <button data-value="3">3</button>
                     </div>
                     <div class="row">
-                        <button data-value="2">2</button>
+                         <button data-value="2">2</button>
                         <button data-value="1">1</button>
                         <button id="doubleButton">Double</button>
-                    </div>
-                    <div class="row">
-                       <button id="tripleButton">Triple</button>
-                    </div>
+                        <button id="tripleButton">Triple</button>
+                       </div>
                     </div>
                 </div>
-            <button onclick="nextPlayer()">Next Player</button>
-            <button onclick="undo()">Undo</button>
-            <button onclick="endGame()">End Game</button>
+            <div id="game-buttons">
+                <button onclick="nextPlayer()">Next Player</button>
+                <button onclick="undo()">Undo</button>
+                <button onclick="endGame()">End Game</button>
+            </div>
         </div>
 
         <div id="match-history">
