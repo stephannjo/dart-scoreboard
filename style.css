@@ -98,13 +98,14 @@ button:hover {
     border-radius: 4px;
 }
 
+/* Score Input Styling */
 #score-input {
     margin-bottom: 20px;
 }
 
 .score-buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Responsive grid */
     gap: 5px;
 }
 
@@ -117,4 +118,15 @@ button:hover {
     flex: 1; /* Buttons take equal width in a row */
     padding: 10px;
     font-size: 1.2em;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 500px) {
+    .score-buttons button {
+        font-size: 1em; /* Reduce font size on smaller screens */
+        padding: 8px; /* Reduce padding on smaller screens */
+    }
+     .score-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); /* Adjust minmax values as needed */
+    }
 }
